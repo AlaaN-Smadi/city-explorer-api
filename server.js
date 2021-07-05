@@ -36,7 +36,7 @@ server.get('/wheather', (req, res) => {
 })
 //  Requests  &  Responses  //
 server.get('*', (req, res) => {
-    res.status(404).send('NOT FOUND')
+    res.status(500).send('NOT FOUND')
 })
 
 server.listen(PORT, () => {  //   function  to  awake  Server 
