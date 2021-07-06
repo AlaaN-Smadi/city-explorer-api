@@ -30,7 +30,10 @@ server.get('/wheather', (req, res) => {
             return true
         }
     })
-    res.send(cityInfo)
+    let cityFinalInfo = cityInfo[0].data.map((item)=>{
+        return item
+    })
+    res.send(cityFinalInfo)
 
 
 })
