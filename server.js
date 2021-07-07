@@ -16,29 +16,37 @@ const PORT = process.env.PORT;  //  PORT  name  and  number
 server.use(cors());
 
 
+class Forecast{
+    constructor(data){
+        this.data = data
+    }
+}
+
 //  Requests  &  Responses  //
 server.get('/wheather', handelRequest);
 server.get('/movies', handelMovie);
 //  wheather => link //  ?city=cityName => request  // 
-// server.get('/wheather', (req, res) => {
+server.get('/wheatherJSON', (req, res) => {
 
 
-//     let city = req.query.city.toLocaleLowerCase();
+    let city = req.query.city.toLocaleLowerCase();
 
-//     // console.log(wheather[0])
-//     // console.log(req.query.city.toLocaleLowerCase())
-//     let cityInfo = wheather.filter((item) => {
-//         if (city === item.city_name.toLocaleLowerCase()) {
-//             return true
-//         }
-//     })
-//     let cityFinalInfo = cityInfo[0].data.map((item)=>{
-//         return item
-//     })
-//     res.send(cityFinalInfo)
+    // console.log(wheather[0])
+    // console.log(req.query.city.toLocaleLowerCase())
+    let cityInfo = wheather.filter((item) => {
+        if (city === item.city_name.toLocaleLowerCase()) {
+            return true
+        }
+    })
+    let cityFinalInfo = cityInfo[0].data.map((item)=>{
+        return item
+    })
+    // let myResultData = new Forecast(cityFinalInfo)
+    console.log(cityFinalInfo)
+    res.send(cityFinalInfo)
 
 
-// })
+})
 
 //   https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh&key=API_KEY
 //   KEY = 32293cc6a94649758d8714d7337ea5bb
