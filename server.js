@@ -56,13 +56,15 @@ server.get('/movies', handelMovie);
 
 
 //  Requests  &  Responses  //
+server.get('/', (req, res) => {
+    res.send('  Welcome  To  Alaa  Server  ')
+})
+
 server.get('*', (req, res) => {
     res.status(500).send('NOT FOUND')
 })
 
-server.get('/', (req, res) => {
-    res.send('  Welcome  To  Alaa  Server  ')
-})
+
 
 server.listen(PORT, () => {  //   function  to  awake  Server 
     console.log(`Listening on PORT ${PORT}`);
